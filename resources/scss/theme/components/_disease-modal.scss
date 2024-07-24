@@ -1,0 +1,367 @@
+.disease-modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+
+  &.type-1 {
+    .modal-box {
+      .links-holder {
+        display: flex;
+        flex-wrap: wrap;
+
+        .link {
+          width: 25%;
+          padding: 0 20px;
+          display: flex;
+          justify-content: flex-start;
+          margin-bottom: 20px;
+
+          @include breakpoint-down(md-s) {
+            width: 33.33%;
+          }
+
+          @include breakpoint-down(sm) {
+            justify-content: flex-start;
+            width: 50%;
+
+            &:nth-child(odd) {
+              padding-left: 0;
+            }
+
+            &:nth-child(even) {
+              padding-right: 0;
+            }
+          }
+
+          @include breakpoint-down(xs) {
+            width: 100%;
+            padding: 0;
+          }
+
+          & > a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 500;
+
+            &:hover {
+              text-decoration: underline;
+            }
+
+            img {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              margin-right: 20px;
+
+              @include breakpoint-down(xs) {
+                width: 40px;
+                height: 40px;
+                margin-right: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.type-2 {
+    .modal-flex-holder {
+      display: block;
+    }
+
+    .modal-box {
+      transform: translateY(150px);
+      height: 80%;
+      overflow-y: auto;
+
+      @include breakpoint-down(xs) {
+        transform: translateY(50px);
+        height: 90%;
+      }
+
+      .holder {
+        height: auto;
+        min-height: 100%;
+
+        h2 {
+          font-size: 25px;
+          font-weight: 500;
+          line-height: 30px;
+        }
+
+        @include breakpoint-down(xs) {
+          padding-bottom: 10px;
+          height: auto;
+        }
+      }
+
+      .terms-holder {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-around;
+
+        .term {
+          width: 25%;
+          padding: 0 20px;
+          margin-bottom: 40px;
+          position: relative;
+          font-size: 1.5rem;
+          font-weight: 500;
+
+          @include breakpoint-down(md-s) {
+            //width: 33.33%;
+            width: 50%;
+          }
+
+          @include breakpoint-down(sm) {
+            justify-content: flex-start;
+            width: 50%;
+
+            &:nth-child(odd) {
+              padding-left: 0;
+            }
+
+            &:nth-child(even) {
+              padding-right: 0;
+            }
+          }
+
+          @include breakpoint-down(xs) {
+            width: 100%;
+            padding: 0;
+            margin-bottom: 30px;
+          }
+
+          &:hover .term-name {
+            background: var(--sk-base-gradient);
+          }
+
+          .term-name {
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 40px 10px 15px;
+            transition: background 0.2s;
+
+            &__text {
+              word-break: break-word;
+              text-align: center;
+              margin-block-end: 1px;
+
+              &::after {
+                content: '';
+                position: absolute;
+                bottom: 19px;
+                display: inline-block;
+                margin-left: 19px;
+                width: 15px;
+                height: 15px;
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='19' height='10' viewBox='0 0 19 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.211706 0.209794C0.278645 0.143292 0.358165 0.0905304 0.445712 0.0545311C0.533259 0.0185308 0.627113 0 0.721898 0C0.816683 0 0.910537 0.0185308 0.998084 0.0545311C1.08563 0.0905304 1.16515 0.143292 1.23209 0.209794L9.36922 8.27488L17.5063 0.209794C17.6417 0.0757046 17.8252 0.000374794 18.0165 0.000374794C18.2079 0.000374794 18.3914 0.0757046 18.5267 0.209794C18.662 0.343884 18.7381 0.525748 18.7381 0.71538C18.7381 0.905011 18.662 1.08687 18.5267 1.22096L9.87941 9.79021C9.81247 9.85671 9.73295 9.90947 9.6454 9.94547C9.55785 9.98147 9.464 10 9.36922 10C9.27443 10 9.18058 9.98147 9.09303 9.94547C9.00548 9.90947 8.92596 9.85671 8.85902 9.79021L0.211706 1.22096C0.144598 1.15463 0.0913557 1.07583 0.0550276 0.989072C0.0186996 0.902315 0 0.809309 0 0.71538C0 0.62145 0.0186996 0.528444 0.0550276 0.441688C0.0913557 0.354931 0.144598 0.276128 0.211706 0.209794Z' fill='white'/%3E%3C/svg%3E%0A");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+              }
+
+              @include breakpoint-down(xs) {
+                padding-left: 0;
+              }
+            }
+
+            @include breakpoint-down(xs) {
+              align-items: center;
+              text-align: center;
+            }
+          }
+
+          .list {
+            display: none;
+            width: 100%;
+            background-color: white;
+            padding: 5px 0;
+            position: relative;
+            z-index: 1;
+            max-height: 250px;
+            overflow-y: auto;
+            font-size: 18px;
+            font-weight: 700;
+
+            a {
+              color: var(--sk-color-primary);
+              text-decoration: none;
+              padding: 8px 15px;
+              display: inline-block;
+              width: 100%;
+
+              &:hover {
+                color: var(--sk-color-blue);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.modal-technology-platforms {
+    .modal-flex-holder {
+      .modal-box {
+        .terms-holder {
+          .term.dropdown-term {
+            width: 50%;
+
+            .term-name {
+              cursor: pointer;
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              justify-content: center;
+              padding: 10px 40px 10px 15px;
+              transition: background 0.2s;
+
+              &::after {
+                content: '';
+                position: absolute;
+                bottom: 10px;
+                right: 15px;
+                width: 15px;
+                height: 15px;
+                background-image: url("data:image/svg+xml,%0A%3Csvg width='19' height='10' viewBox='0 0 19 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.211706 0.209794C0.278645 0.143292 0.358165 0.0905304 0.445712 0.0545311C0.533259 0.0185308 0.627113 0 0.721898 0C0.816683 0 0.910537 0.0185308 0.998084 0.0545311C1.08563 0.0905304 1.16515 0.143292 1.23209 0.209794L9.36922 8.27488L17.5063 0.209794C17.6417 0.0757046 17.8252 0.000374794 18.0165 0.000374794C18.2079 0.000374794 18.3914 0.0757046 18.5267 0.209794C18.662 0.343884 18.7381 0.525748 18.7381 0.71538C18.7381 0.905011 18.662 1.08687 18.5267 1.22096L9.87941 9.79021C9.81247 9.85671 9.73295 9.90947 9.6454 9.94547C9.55785 9.98147 9.464 10 9.36922 10C9.27443 10 9.18058 9.98147 9.09303 9.94547C9.00548 9.90947 8.92596 9.85671 8.85902 9.79021L0.211706 1.22096C0.144598 1.15463 0.0913557 1.07583 0.0550276 0.989072C0.0186996 0.902315 0 0.809309 0 0.71538C0 0.62145 0.0186996 0.528444 0.0550276 0.441688C0.0913557 0.354931 0.144598 0.276128 0.211706 0.209794Z' fill='white'/%3E%3C/svg%3E%0A");
+                background-size: contain;
+                background-repeat: no-repeat;
+              }
+            }
+
+            @include breakpoint-down(xs) {
+              width: 100%;
+
+              .term-name {
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+
+      @include breakpoint-down(sm) {
+        .terms-holder {
+          .term {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .modal-flex-holder {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: rgba(51, 51, 51, 0.5);
+
+    @include breakpoint-down(md-s) {
+      padding: 20px 15px;
+    }
+  }
+
+  .modal-box {
+    background-color: var(--sk-color-navy-light);
+    color: white;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    height: auto;
+    overflow: auto;
+    max-height: 100%;
+    background-size: cover;
+    border-radius: 10px;
+
+    .holder {
+      position: relative;
+      z-index: 2;
+      padding: 60px 60px 40px;
+      border-radius: 10px;
+      // background-color: var(--sk-color-navy-light);
+      // opacity: 0.8;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--sk-color-navy-light);
+        z-index: 1;
+        opacity: 0.8;
+        border-radius: 10px;
+      }
+
+      @include breakpoint-down(sm) {
+        padding: 60px 40px 20px;
+      }
+
+      @include breakpoint-down(xs) {
+        padding: 60px 25px 20px;
+      }
+
+      & > * {
+        position: relative;
+        z-index: 2;
+      }
+    }
+
+    h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 50px;
+      text-transform: uppercase;
+
+      @include breakpoint-down(sm) {
+        margin-bottom: 40px;
+      }
+
+      @include breakpoint-down(xs) {
+        margin-bottom: 30px;
+      }
+    }
+
+    .close-disease-modal {
+      position: absolute;
+      z-index: 2;
+      top: 25px;
+      right: 25px;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(0, 0, 0, 0);
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+
+      @include breakpoint-down(sm) {
+        top: 20px;
+        right: 20px;
+      }
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

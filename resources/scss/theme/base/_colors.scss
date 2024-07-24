@@ -1,0 +1,54 @@
+/* stylelint-disable */
+
+/**
+  Generate colors https://gka.github.io/palettes
+ */
+
+ :root {
+  /* Main colors */
+  --sk-color-navy: #03356D;
+  --sk-color-white: white;
+  --sk-color-transparent-white: #ffffff80;
+  --sk-color-transparent-gray: #00000033;
+  --sk-color-transparent-blue: #0367bf1a;
+  --sk-color-blue: #05B1F1;
+  --sk-color-light-blue: #00AEEF;
+  --sk-color-gray: #847681;
+  --sk-base-gradient: linear-gradient(270deg, #05B1F1 0%, #88C32F 100%);
+  --sk-secondary-gradient: linear-gradient(270deg, #D94747 0%, #F5A623 100%);
+  --sk-third-gradient: linear-gradient(270deg, #0367BF 0%, #05B1F1 100%);
+  --sk-menu-gradient: linear-gradient(270deg, #05B1F1 0%, #0367BF 100%);
+  --sk-color-navy-light: #0367BF;
+
+  --sk-color-primary: var(--sk-color-navy);
+  --sk-color-second: var(--sk-color-white);
+  --sk-color-third: var(--sk-color-blue);
+
+  /* Background colors */
+  --sk-color-bg-primary: var(--sk-base-gradient);
+  --sk-color-bg-second: var(--sk-secondary-gradient);
+
+  /* Typography */
+  --sk-color-text: var(--sk-color-navy);
+  --sk-color-text-light: var(--sk-color-white);
+  --sk-color-text-heading: var(--sk-color-navy);
+  --sk-color-text-subtle: var(--sk-color-navy);
+  --sk-color-link: var(--sk-color-blue);
+  --sk-color-link-hover: var(--sk-color-navy);
+  --sk-color-link-visited: var(--sk-color-blue);
+
+  /* Body */
+  --sk-color-body: var(--sk-color-text);
+
+  /* Feedback */
+  --sk-color-success: green;
+  --sk-color-error: red;
+  --sk-color-warning: orange;
+
+  /* Icons */
+  --sk-color-icon-primary: var(--sk-color-primary);
+  --sk-color-icon-secondary: var(--sk-color-second);
+
+
+  //Other colors
+}

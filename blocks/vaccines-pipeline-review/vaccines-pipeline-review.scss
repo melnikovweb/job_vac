@@ -1,0 +1,17 @@
+@import "resources/scss/theme/mixins/all";
+
+.vaccines-pipeline-review {
+  padding: 50px 0;
+  background-color: var(--sk-color-primary);
+  color: white;
+  text-align: center;
+
+  h2 {
+    color: white;
+    margin: 0 0 30px;
+  }
+
+  .wp-block-button {
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,16 @@
+{% if menu %}
+  <ul>
+    {% for item in items %}
+      <li class="{{ item.classes|join(' ') }}">
+        {# <div class="nav-item-wrapper"> #}
+          {% if item.children %}
+            <button class="nav-button"></button>
+          {% endif %}
+
+          <a target="{{ item.target|default('_self') }}" href="{{ item.link }}">{{ item.title }}</a>
+        {# </div> #}
+        {% include 'parts/components/header-menu.twig' with { items: item.children } %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

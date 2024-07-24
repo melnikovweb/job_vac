@@ -1,0 +1,8 @@
+<header class="header">
+	<div class="wrapper">
+		<a href="{{site.url}}" rel="home">{{site.name}}</a>
+		<nav id="nav-main" class="nav-main" role="navigation">
+			{% include "parts/menu.twig" with {'items': header_menu.get_items} %}
+		</nav>
+	</div>
+</header>

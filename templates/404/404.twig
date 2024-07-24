@@ -1,0 +1,10 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+  <div class="notfound">
+    <h1 class="sk-text--h3">{{ sorry_message }}</h1>
+    <div class="wp-block-button">
+      <a href="{{ homelink }}" class="wp-block-button__link" target="_self">{{ main }}</a>
+    </div>
+  </div>
+{% endblock %}

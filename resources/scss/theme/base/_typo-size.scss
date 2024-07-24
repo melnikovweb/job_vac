@@ -1,0 +1,42 @@
+/* stylelint-disable */
+:root {
+
+  //line height / font size
+  --sk-line-height--body: #{(25/18)};
+  --sk-line-height--h1: #{(60/60)};
+  --sk-line-height--h2: #{(32/32)};
+  --sk-line-height--h3: #{(35/32)};
+  --sk-line-height--h4: #{(25/18)};
+  --sk-line-height--h5: #{(16/11)};
+  --sk-line-height--h6: #{(16/16)};
+
+  --sk-text-base-size: 18px;
+
+  --sk-text--h1-up: #{clamp-calc(40px, 80px)};
+  --sk-text--h1: #{clamp-calc(32px, 60px)};
+  --sk-text--h2: #{clamp-calc(28px, 32px)};
+  --sk-text--h3: #{clamp-calc(26px, 32px)};
+  --sk-text--h4: #{clamp-calc(18px, 18px)};
+  --sk-text--h5: #{clamp-calc(16px, 16px)};
+  --sk-text--h6: #{clamp-calc(16px, 16px)};
+  --sk-text--lg: #{clamp-calc(48px, 96px)};
+  --sk-text--md: #{clamp-calc(28px, 48px)};
+  --sk-text--md-s: 32px;
+  --sk-text--md-custom-2: 24px;
+  --sk-text--md-custom: 22px;
+  --sk-text--md-s-custom: 20px;
+  --sk-text--xs: 16px;
+  --sk-text--2xs: 12px;
+}
+
+@include breakpoint-down(sm) {
+  :root {
+    --sk-line-height--body: #{(25/18)};
+    --sk-line-height--h1: #{(60/60)};
+    --sk-line-height--h2: #{(32/32)};
+    --sk-line-height--h3: #{(35/32)};
+    --sk-line-height--h4: #{(25/18)};
+    --sk-line-height--h5: #{(16/11)};
+    --sk-line-height--h6: #{(16/16)};
+  }
+}

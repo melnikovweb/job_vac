@@ -1,0 +1,54 @@
+<section class="{{ class }}">
+  <div class="sk-container">
+    <div class="flex-holder">
+      {% if not (hero_content is empty) %}
+        <div class="content-col">
+          <div class="content">
+            {{ hero_content }}
+          </div>
+
+          {% if not (hero_download_button_text is empty) and not (hero_download_button_file is empty) %}
+            <div class="wp-block-button is-style-small--plus">
+              <a class="wp-block-button__link wp-element-button" download
+                 href="{{ hero_download_button_file['url'] }}">{{ hero_download_button_text }}</a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if not (hero_overview_data is empty) %}
+        <div class="overview-col">
+          {% if not (hero_overview_data_title is empty) %}
+            <h2>{{ hero_overview_data_title }}</h2>
+          {% endif %}
+
+          <div class="overview-slider swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              {% for slide in hero_overview_data %}
+                <div class="swiper-slide">
+                  <div class="holder">
+                    {% set title = slide['title'] %}
+                    {% set text = slide['text'] %}
+
+                    {% if not (title is empty) %}
+                      <h3>{{ title }}</h3>
+                    {% endif %}
+
+                    {% if not (text is empty) %}
+                      <div class="text">{{ text }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

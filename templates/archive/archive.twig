@@ -1,0 +1,83 @@
+{# This file demonstrates using most of the index.twig template and modifying 
+   just a small part. See `search.twig` for an example of another approach #}
+{% extends 'base.twig' %}
+{% block content %}
+  <div class="archive-page">
+    <div class="hero-white archive-page__header">
+      <h1>{{ blog_page_title }}</h1>
+    </div>
+    <div class="submenu archive-page__submenu" id="submenu">
+      <div class="swiper" id="submenuswiper">
+        <div class="swiper-wrapper">
+          {% if blog_categories is not empty %}
+            {% for category in blog_categories %}
+              <div class="swiper-slide">
+                <a class="submenu__item submenu-button {{ category.slug == current_category ? 'active' : '' }}" href="{{ category.link }}" target="_self">{{ category.name }}</a>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <div class="archive-page__subheader sk-container">
+      <h2 class="archive-page__title">{{ category_header}}</h2>
+      {% if child_categories|length > 1 and firstposts is not empty %}
+        <div class="archive-page__subcategories subcategories" id="subcategories">
+          {% for category in child_categories %}
+            <button data-category="{{ category.slug }}" data-page="1" data-type='filter' class="filterbtn subcategories__item {{ category.current == true ? 'active' : '' }}">{{ category.name }}</button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="sk-container archive-page__wrapper" id="post-container">
+
+      {% if firstposts is not empty %}
+        <div class="posts-container">
+          {% for post in firstposts %}
+            {% include 'parts/components/post-preview.twig' %}
+          {% endfor %}
+        </div>
+        {% else %}
+        <p class="sk-text--h2">{{ no_upcoming_events }} </p>
+      {% endif %}
+    </div>
+{% if show_load_more %}
+    <div class="wp-block-button">
+      <button id="load-more-btn" data-category="{{current_category}}" data-type='loadmore' data-page="2" class="wp-block-button__link wp-block-button__link--withsquare">load more</button>
+    </div>
+{% endif %}
+  </div>
+  
+
+  {% if  events_firstposts and current_category == "events"%}
+  <section class="events-wrapper">
+    <div class="sk-container archive-page__wrapper" id="events-post-container">
+
+      {% if options.past_event_heading  is not empty %}
+      <h2 class="past-event-heading">{{ options.past_event_heading }}</h2>
+      {% endif %}
+      {% if options.past_event_sub_heading  is not empty %}
+      <p class="past-event-sub-heading">{{ options.past_event_sub_heading }}</p>
+      {% endif %}
+
+      {% if posts is not empty %}
+        <div class="posts-container">
+          {% for post in events_firstposts %}
+            {% include 'parts/components/post-preview.twig' %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    {% if events_show_load_more %}
+    <div class="wp-block-button">
+      <button id="events-load-more-btn" data-category="{{current_category}}" data-past-events="true" data-type='loadmore-events' data-page="2" class="wp-block-button__link wp-block-button__link--withsquare">load more</button>
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
+{% endblock %}

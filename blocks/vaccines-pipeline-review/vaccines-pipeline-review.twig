@@ -1,0 +1,16 @@
+{% if not (review_download_button_file is empty) %}
+  <section class="{{ class }}">
+    <div class="sk-container">
+      {% if not (review_title is empty) %}
+        <h2>{{ review_title }}</h2>
+      {% endif %}
+
+      {% if not (review_download_button_text is empty) %}
+        <div class="wp-block-button is-style-small--plus">
+          <a class="wp-block-button__link wp-element-button" download
+             href="{{ review_download_button_file['url'] }}">{{ review_download_button_text }}</a>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

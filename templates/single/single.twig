@@ -1,0 +1,27 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+  <div class="content-wrapper">
+    <article class="post post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+      <div class="post__cover cover">
+        {% if post.thumbnail is not empty %}
+          <div class="cover__image" style="background-image: url({{ post.thumbnail.src|resize(1200, 300) }});"></div>
+        {% else %}
+          <div class="cover__image" style="background-image: url({{ options.post_header_image.url }});"></div>
+        {% endif %}
+        <div class="cover__mask"></div>
+        {% if post.title %}
+          <h1 class="cover__title sk-text--h3">{{ post.title }}</h1>
+        {% endif %}
+      </div>
+      <section class="post__content content">
+        <p class="content__date sk-text--h5">{{ show_post_date(post.ID) }}</p>
+
+        {% if post.content is not empty %}
+          <div class="content__container">{{ post.content }}</div>
+        {% endif %}
+      </section>
+    </article>
+  </div>
+  <!-- /content-wrapper -->
+{% endblock %}

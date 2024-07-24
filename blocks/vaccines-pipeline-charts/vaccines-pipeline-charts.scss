@@ -1,0 +1,60 @@
+@import "resources/scss/theme/mixins/all";
+
+.vaccines-pipeline-charts {
+  padding: 50px 0;
+
+  h2 {
+    text-align: center;
+    margin: 0 0 30px;
+  }
+
+  .text {
+    text-align: center;
+    width: 100%;
+    max-width: 1190px;
+    margin: 0 auto 30px;
+  }
+
+  .charts-slider {
+    width: 100%;
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 50px;
+    height: auto;
+
+    .swiper-slide {
+      .chart {
+        width: 90%;
+        margin: 0 auto;
+
+        @include breakpoint-down(xs) {
+          width: 100%;
+        }
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      @include breakpoint-down(xs) {
+        display: none !important;
+      }
+    }
+
+    .swiper-pagination {
+      position: static;
+      margin-top: 40px;
+
+      @include breakpoint-down(xs) {
+        margin-top: 20px;
+      }
+
+      .swiper-pagination-bullet {
+        width: 25px;
+        height: 5px;
+        background-color: var(--sk-color-primary);
+        border-radius: 5px;
+        margin: 0 3px;
+      }
+    }
+  }
+}

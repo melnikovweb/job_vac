@@ -1,0 +1,53 @@
+input,
+textarea {
+  height: 50px;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 10px;
+  font-weight: 400;
+  border: 1px solid var(--sk-color-light-blue);
+  background: var(--sk-color-white);
+  color: var(--sk-color-black);
+  font-size: var(--sk-text--xs);
+  border-radius: 4px;
+
+  &:focus {
+    outline: none;
+    border-color: var(--sk-input-color-border-focus);
+  }
+
+  &::placeholder {
+    color: var(--sk-input-color-placeholder);
+  }
+}
+
+textarea {
+  height: 100px;
+  max-height: 100px;
+  resize: none;
+}
+
+input[type=submit] {
+  min-height: 30px;
+}
+
+input[type=checkbox] {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0;
+  cursor: pointer;
+
+  &:focus {
+    outline: 1px solid #0a4b78;
+  }
+}
+
+.wp-block-button.is-style-small--plus {
+  input[type=submit].button-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    padding-left: 20px;
+  }
+}

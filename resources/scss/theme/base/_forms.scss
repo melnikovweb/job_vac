@@ -1,0 +1,92 @@
+.wp-block-cover.is-style-subscribe {
+  padding: 190px 0;
+
+  .wp-block-cover__image-background.has-parallax {
+    background-attachment: initial;
+  }
+
+  @include breakpoint-down(xsm) {
+    padding: 70px 0;
+  }
+
+  form {
+    padding-top: 60px;
+
+    @include breakpoint-down(xsm) {
+      flex-direction: column;
+    }
+
+    .gform_body.gform-body {
+      @include breakpoint-down(xsm) {
+        width: 100%;
+      }
+
+      .ginput_container {
+        max-width: 300px;
+
+        @include breakpoint-down(xsm) {
+          max-width: 100%;
+        }
+
+        .hidden_label {
+          display: block;
+        }
+
+        .gfield_label {
+          text-transform: uppercase;
+          font-weight: 700;
+          color: var(--sk-color-black);
+          font-size: 14px;
+        }
+      }
+
+      .ginput_container.ginput_container_name {
+        display: block;
+      }
+    }
+
+    .gform_footer {
+      padding: 0;
+    }
+
+    &.js-cm-form {
+      input {
+        height: 52px;
+        padding-left: 16px;
+        border: none;
+      }
+    }
+
+    .ginput_container.ginput_container_email {
+      width: 300px;
+      margin-right: 15px;
+
+      @include breakpoint-down(xsm) {
+        width: 100%;
+      }
+    }
+
+    .gform_footer.top_label,
+    .wp-block-button.is-style-small--plus,
+    .button {
+      @include breakpoint-down(xsm) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.gfield_description.validation_message.gfield_validation_message {
+  display: none;
+}
+
+.ginput_container_consent {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+
+  .gfield_consent_label {
+    font-size: 13px;
+    cursor: pointer;
+  }
+}

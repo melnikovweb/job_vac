@@ -1,0 +1,36 @@
+{% if not (charts_slider is empty) %}
+  <section class="{{ class }}">
+    <div class="sk-container">
+      {% if not (charts_title is empty) %}
+        <h2>{{ charts_title }}</h2>
+      {% endif %}
+
+      {% if not (charts_text is empty) %}
+        <div class="text">
+          {{ charts_text }}
+        </div>
+      {% endif %}
+
+      <div class="charts-slider swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          {% for slide in charts_slider %}
+            <div class="swiper-slide">
+              {% set chart_code = slide['chart_code'] %}
+
+              {% if not (chart_code is empty) %}
+                <div class="chart">
+                  {{ chart_code }}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+{% endif %}

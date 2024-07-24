@@ -1,0 +1,74 @@
+@import "resources/scss/theme/mixins/all";
+@import "resources/scss/theme/components/disease-modal";
+
+.vaccines-pipeline-report-section {
+  background-color: var(--sk-color-primary);
+  padding: 50px 0 10px;
+
+  @include breakpoint-down(sm) {
+    padding: 50px 0 30px;
+  }
+
+  h4 {
+    text-align: center;
+    color: white;
+    margin: 0 0 30px;
+    font-weight: 400;
+  }
+
+  .reports-holder {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+
+    @include breakpoint-down(md-s) {
+      margin: 0;
+    }
+
+    .report-card {
+      width: 33.33%;
+      margin-bottom: 40px;
+      padding: 0 20px;
+
+      @include breakpoint-down(md-s) {
+        width: 50%;
+      }
+
+      @include breakpoint-down(sm) {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+      }
+
+      .report-card-bg {
+        display: flex;
+        align-items: center;
+        background-color: var(--sk-color-navy-light);
+        padding: 30px 40px;
+        height: 100%;
+        color: white;
+        cursor: pointer;
+
+        @include breakpoint-down(sm) {
+          padding: 20px;
+        }
+
+        .icon {
+          margin-right: 30px;
+
+          img {
+            display: block;
+            width: 100%;
+            max-width: 60px;
+            min-width: 60px;
+
+            @include breakpoint-down(sm) {
+              min-width: 45px;
+              max-width: 45px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

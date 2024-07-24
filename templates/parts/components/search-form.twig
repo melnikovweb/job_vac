@@ -1,0 +1,9 @@
+<form class="searchform" id="searchform" method="get" action="{{ action }}">
+	<input class="searchform-input search-field" type="text" name="s" placeholder="{{ search }}" value="{{ title }}"/>
+	<input type="hidden" value="post" name="post_type" id="post_type"/>
+	<input class="searchform-submit" type="submit" value="{{ search }}"
+        style="background-image: url({{ get_image('search-icon.png')}});"/>
+    {# <div class="searchform-image">
+      <img alt="searchform" src="{{ get_image('search-icon.png')}}" width="26" height="24">
+    </div> #}
+</form>

@@ -1,0 +1,32 @@
+{% if not (advantages_blocks is empty) %}
+  <section class="{{ class }}">
+    <div class="sk-container">
+      {% if not (advantages_title is empty) %}
+        <h2>{{ advantages_title }}</h2>
+      {% endif %}
+
+      <div class="blocks">
+        {% for block in advantages_blocks %}
+          <div class="block">
+            <div class="index">
+              {{ loop.index }}
+            </div>
+
+            {% if block['link_or_text'] and not (block['text'] is empty) %}
+              <div class="text">
+                {{ block['text'] }}
+              </div>
+            {% endif %}
+
+            {% if not block['link_or_text'] and not (block['link'] is empty) %}
+              <a href="{{ block['link']['url'] }}"
+                 target="{{ block['link']['target'] ? block['link']['target'] : '_self' }}">
+                {{ block['link']['title'] }}
+              </a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

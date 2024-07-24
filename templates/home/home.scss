@@ -1,0 +1,33 @@
+.archive-page {
+  &__subheader {
+    text-align: center;
+    padding-top: calc(var(--sk-container-padding) * 2.5);
+  }
+
+  &__wrapper {
+    max-width: 1260px;
+    padding-top: 29px;
+  }
+
+  &__title {
+    padding-bottom: 35px;
+  }
+
+  & > .wp-block-button {
+    margin: auto;
+    padding-bottom: 80px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .archive-page {
+    &__title {
+      padding-top: 30px;
+      padding-bottom: 20px;
+    }
+
+    &__wrapper {
+      padding-top: 10px;
+    }
+  }
+}

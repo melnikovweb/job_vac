@@ -1,0 +1,10 @@
+{% set randomID = 'video-btn-' ~ random(100000) %}
+        <div class="{{ class }}-media">
+          {% if not (fields.video_link is empty) %}
+            {% set youtube_id = get_youtube_id(fields.video_link) %}
+            <a href="{{fields.video_link}}" class="{{ class }}-link vaccines-video-popup-play-btn" title="popup video"
+            id="{{ randomID }}"
+            data-fslightbox="lightbox"
+            data-class="fslightbox-youtube-iframe"></a>
+          {% endif %}
+        </div>

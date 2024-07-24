@@ -1,0 +1,21 @@
+<div class="vaccines-hero-menu">
+  <div class="hero-white archive-page__header">
+    <h1>{{ title }}</h1>
+  </div>
+  <div class="submenu archive-page__submenu" id="submenu">
+    <div class="swiper" id="submenuswiper">
+      <div class="swiper-wrapper">
+        {% if page_children is not empty %}
+          {% for children in page_children %}
+            <div class="swiper-slide">
+              <a class="submenu__item submenu-button {{ children.post_name == current_children ? 'active' : '' }}" href="{{ children.post_name }}" target="_self">{{ children.post_title }}</a>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</div>

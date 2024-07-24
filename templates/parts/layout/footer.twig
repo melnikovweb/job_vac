@@ -1,0 +1,26 @@
+<footer class="footer">
+  <div class="footer__partners partners">
+    <a class="policy" href="{{ options.link }}">{{ options.main_footer_text }}</a>
+    <div class="partners__brands">
+      {% for item in options.partners %}
+        <a class="social__link" href="{{ item.link }}">{% include 'parts/components/image.twig' with { id: item.logo.ID, classes: 'partners-logo', sizes: '(max-width: 767px) 32px, (max-width: 991px) 32px, 600px', disableLoading: true } only %}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="footer__contacts contacts">
+    <div class="contacts__logo">
+      {% include 'parts/components/image.twig' with { id: options.secondary_logo_full.ID, classes: 'footer-logo', sizes: '(max-width: 767px) 180px, (max-width: 991px) 180px, 180px', disableLoading: true } only %}
+    </div>
+    <div class="contacts__copyright">{{ options.copyright }}</div>
+    <div class="contacts__social social">
+      {% for item in options.socials %}
+        <a class="social__link" target="_blank" href="{{ item.link }}">{% include 'parts/components/image.twig' with { id: item.icon.ID, classes: 'social__icon', sizes: '(max-width: 767px) 32px, (max-width: 991px) 32px, 600px', disableLoading: true } only %}</a>
+      {% endfor %}
+      <a class="social__link" target="_blank" href="{{ options.contact.link }}">{% include 'parts/components/image.twig' with { id: options.contact.icon.ID, classes: 'social__icon', sizes: '(max-width: 767px) 32px, (max-width: 991px) 32px, 600px', disableLoading: true } only %}</a>
+    </div>
+  </div>
+</footer>
+{# <p>Copyright {{ "now"|date('Y') }}</p>
+      <nav id="nav-main" class="nav-main" role="navigation">
+        {% include "parts/components/header-menu.twig" with {'items': footer_menu.get_items} %}
+      </nav> #}

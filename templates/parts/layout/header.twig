@@ -1,0 +1,72 @@
+<header class="header">
+  {% include 'parts/components/search-panel.twig' %}
+
+  <div class="sk-container sticky">
+    <div class="sticky-header--{{ header_color }}-full sticky-header" id="header">
+      <div class="sticky-header__wrapper header-wrapper">
+        <a href="{{ site.url }}" rel="home" class="logo" aria-label="Logo home link" title="{{ site.title }}">
+          {% if options.secondary_logo_full %}
+            <div class="logo-wrapper main_logo_full">
+              {% include 'parts/components/image.twig' with { id: options.main_logo_full.ID, classes: 'main_logo_full__img', sizes: '(max-width: 767px) 180px, (max-width: 991px) 180px, 180px', disableLoading: true } only %}
+            </div>
+            <div class="logo-wrapper main_logo_small">
+              {% include 'parts/components/image.twig' with { id: options.main_logo_small.ID, classes: 'main_logo_small__img', sizes: '(max-width: 767px) 180px, (max-width: 991px) 180px, 180px', disableLoading: true } only %}
+            </div>
+            <div class="logo-wrapper secondary_logo_full">
+              {% include 'parts/components/image.twig' with { id: options.secondary_logo_full.ID, classes: 'secondary_logo_full__img', sizes: '(max-width: 767px) 180px, (max-width: 991px) 180px, 180px', disableLoading: true } only %}
+            </div>
+
+            <div class="logo-wrapper secondary_logo_small">
+              {% include 'parts/components/image.twig' with { id: options.secondary_logo_small.ID, classes: 'secondary_logo_small__img', sizes: '(max-width: 767px) 180px, (max-width: 991px) 180px, 180px', disableLoading: true } only %}
+            </div>
+          {% else %}
+            {{ blog_name }}
+          {% endif %}
+        </a>
+        <div class="sticky-header__menu menu">
+          <div class="menu__search search-container">
+            <button class="search-button" id="search-icon">
+              <span class="search-button__text">search</span>
+              <img alt="searchform" src="{{ get_image('search-icon.png') }}" width="26" height="24" />
+            </button>
+          </div>
+          <div class="menu__wrapper">
+            <p class="menu__text">menu</p>
+            <div id="burger-btn" class="menu__burger burger">
+              <span class="burger__btn"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-wrapper" id="menu">
+        <div class="nav-image">
+          {% include 'parts/components/image.twig' with { id: options.menu_image.ID, classes: 'background-image', sizes: '(max-width: 767px) 767px, (max-width: 991px) 991px, 1440px', disableLoading: true } only %}
+        </div>
+        {# <nav id="navmain" class="nav-main" role="navigation">
+          {% include 'parts/components/header-menu.twig' with { items: header_menu.get_items } %}
+        </nav> #}
+
+        <div class="nav-menu wrapper">
+          <div id="container">
+            <div class="parent">
+              <nav id="navmain" class="nav-main" role="navigation">
+                {% include 'parts/components/header-menu.twig' with { items: header_menu.get_items } %}
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-footer">
+          <a class="policy" href="{{ options.link }}">{{ options.main_footer_text }}</a>
+          <div class="social">
+            {% for item in options.socials %}
+              <a target="_blank" class="social__link" href="{{ item.link }}">{% include 'parts/components/image.twig' with { id: item.icon.ID, classes: 'social__icon', sizes: '(max-width: 767px) 32px, (max-width: 991px) 32px, 600px', disableLoading: true } only %}</a>
+            {% endfor %}
+            <a class="social__link" target="_blank" href="{{ options.contact.link }}">{% include 'parts/components/image.twig' with { id: options.contact.icon.ID, classes: 'social__icon', sizes: '(max-width: 767px) 32px, (max-width: 991px) 32px, 600px', disableLoading: true } only %}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

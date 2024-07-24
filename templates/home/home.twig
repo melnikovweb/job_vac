@@ -1,0 +1,42 @@
+{# This file demonstrates using most of the index.twig template and modifying 
+   just a small part. See `search.twig` for an example of another approach #}
+{% extends 'base.twig' %}
+{% block content %}
+  <div class="archive-page">
+    <div class="hero-white archive-page__header">
+      <h1>{{ fn('wp_title', '') }}</h1>
+    </div>
+
+    <div class="submenu archive-page__submenu" id="submenu">
+      <div class="swiper" id="submenuswiper">
+        <div class="swiper-wrapper">
+          {% if child_categories is not empty %}
+            {% for category in child_categories %}
+              <div class="swiper-slide">
+                <a class="submenu__item submenu-button {{ category.name == current_category ? 'active' : '' }}" href="{{ category.link }}" target="_self">{{ category.name }}</a>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <div class="sk-container archive-page__wrapper" id="post-container">
+      {% if posts is not empty %}
+        <div class="posts-container">
+          {% for post in firstposts %}
+            {% include 'parts/components/post-preview.twig' %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    {% if show_load_more %}
+      <div class="wp-block-button">
+        <button id="load-more-btn" data-category="all" data-type="loadmore" data-page="2" class="wp-block-button__link wp-block-button__link--withsquare">load more</button>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

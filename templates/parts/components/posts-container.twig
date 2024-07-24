@@ -1,0 +1,5 @@
+<div class="{{ class }} posts-container">
+  {% for item in posts_lists %}
+        {% include 'parts/components/post-preview.twig' with {'post': item } %}
+  {% endfor %}
+</div>

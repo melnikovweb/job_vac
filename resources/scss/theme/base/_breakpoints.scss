@@ -1,0 +1,17 @@
+$breakpoints: (
+  xxl: 1920px,
+  xl: 1440px,
+  lg: 1280px,
+  md: 1024px,
+  md-s: 992px,
+  sm: 768px,
+  xsm: 596px,
+  xs: 512px,
+  xxs: 390px
+) !default;
+
+:root {
+  @each $name, $breakpoint in $breakpoints {
+    #{--breakpoint-}#{$name}: $breakpoint;
+  }
+}

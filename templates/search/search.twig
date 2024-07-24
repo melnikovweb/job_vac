@@ -1,0 +1,44 @@
+{# see `archive.twig` for an alternative strategy of extending templates #}
+{% extends 'base.twig' %}
+
+{% block content %}
+  {# see `base.twig:27` for where this block's content will be inserted #}
+  <div class="content-wrapper">
+    <div class="search__header">
+      <h1 class="search__title">{{ search_results }}</h1>
+      <div class="search__inputs-container inputs-container">
+        {% include 'parts/components/search-form.twig' %}
+      </div>
+    </div>
+
+    <div class="submenu archive-page__submenu" id="submenu">
+      <div class="swiper" id="submenuswiper">
+        <div class="swiper-wrapper">
+          {% if blog_categories is not empty %}
+            {% for category in blog_categories %}
+              <div class="swiper-slide">
+                <button class="submenu__item submenu-button" data-category="{{ category.slug }}">{{ category.name }}</button>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    {% if posts is not empty %}
+      <div class="posts-container">
+        {% for post in posts %}
+          {% include 'parts/components/post-preview.twig' %}
+        {% endfor %}
+      </div>
+
+      {% else %}
+      <p class="no-results">{{no_results}}</p>
+        
+    {% endif %}
+    {# {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %} #}
+  </div>
+{% endblock %}

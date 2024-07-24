@@ -1,0 +1,24 @@
+<a class="postpreview" href="{{ fn('get_permalink', post.ID) }}" target="_self">
+<div class="postpreview__wrapper">
+<p class="postpreview__category sk-text--h5"> {{ show_post_cat(post.ID) }}</p>
+  <div class="postpreview__image">
+    {% include 'parts/components/image.twig' with { id: post._thumbnail_id, classes: 'img', sizes: '(max-width: 767px) 200px, (max-width: 991px) 400px, 600px', disableLoading: false } only %}
+  </div>
+  <div class="postpreview__content content">
+  {% set dateString = post.post_date %}   
+
+  <p class="content__date sk-text--h5">
+    {% if not (get_post_meta(post.ID, 'event_date', true) is empty) %}
+      {% set formattedDate = get_post_meta(post.ID, 'event_date', true)|date('Y M d') %} 
+      {{ formattedDate }}
+    {% else %}
+      {{ show_post_date(post.ID) }}
+    {% endif %}
+  </p>
+    <h2 class="sk-text--h4">{{ post.post_title }}</h2>
+  </div>
+</div>
+  <div class="wp-block-button postpreview__button">
+    <div class="wp-block-button__link">Read article</div>
+  </div>
+</a>

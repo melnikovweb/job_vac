@@ -1,0 +1,230 @@
+{% if not (disease_posts is empty) %}
+  <section class="{{ class }}">
+    <div class="sk-container">
+      {% if not (latest_vaccines_in_development_title is empty) %}
+        <h2>{{ latest_vaccines_in_development_title }}</h2>
+      {% endif %}
+      {% if not (latest_vaccines_in_development_subtitle is empty) %}
+        <h4>{{ latest_vaccines_in_development_subtitle }}</h4>
+      {% endif %}
+
+      <div class="cards-holder">
+        <div class="card open-disease-modal" data-modal-name="all-disease-areas">
+          {% if not (all_diseases_areas_image is empty) %}
+            {% include 'parts/image.twig' with {'id': all_diseases_areas_image, 'sizes': '400px'} only %}
+          {% endif %}
+          <div class="title">
+            All Disease Areas
+          </div>
+        </div>
+
+        {% if not (technology_platform_terms is empty) %}
+          <div class="card open-disease-modal" data-modal-name="technology-platforms">
+            {% if not (technology_platforms_image is empty) %}
+              {% include 'parts/image.twig' with {'id': technology_platforms_image, 'sizes': '400px'} only %}
+            {% endif %}
+            <div class="title">
+              Technology Platforms
+            </div>
+          </div>
+        {% endif %}
+
+        {% if not (development_phase_terms is empty) %}
+          <div class="card open-disease-modal" data-modal-name="development-phase">
+            {% if not (development_phases_image is empty) %}
+              {% include 'parts/image.twig' with {'id': development_phases_image, 'sizes': '400px'} only %}
+            {% endif %}
+            <div class="title">
+              Development Phases
+            </div>
+          </div>
+        {% endif %}
+
+        {% if not (trial_population_terms is empty) %}
+          <div class="card open-disease-modal" data-modal-name="trial-population">
+            {% if not (trial_population_image is empty) %}
+              {% include 'parts/image.twig' with {'id': trial_population_image, 'sizes': '400px'} only %}
+            {% endif %}
+            <div class="title">
+              Trial Population
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <div class="disease-modal type-1 modal-all-disease-areas" data-modal-name="all-disease-areas">
+    <div class="modal-flex-holder">
+      <div class="modal-box"
+           {% if not (all_diseases_areas_popup_bg_image is empty) %}style="background-image: url({{ all_diseases_areas_popup_bg_image }})" {% endif %}>
+        <div class="holder">
+          {% if not (all_diseases_areas_popup_title is empty) %}
+            <h2>{{ all_diseases_areas_popup_title }}</h2>
+          {% endif %}
+
+          <button class="close-disease-modal">
+            <svg style="fill: white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+              <path
+                d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/>
+            </svg>
+          </button>
+
+          <div class="links-holder">
+            {% for disease_post in disease_posts %}
+              <div class="link">
+                <a href="{{ disease_post.link }}">
+                  {% if not (disease_post.thumbnail is empty) %}
+                    {% include 'parts/image.twig' with {'id': disease_post.thumbnail, 'sizes': '100px'} only %}
+                  {% endif %}
+                  {{ disease_post.title }}
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if not (technology_platform_terms is empty) %}
+    <div class="disease-modal type-2 modal-technology-platforms" data-modal-name="technology-platforms">
+      <div class="modal-flex-holder">
+        <div class="modal-box"
+             {% if not (technology_platforms_popup_bg_image is empty) %}style="background-image: url({{ technology_platforms_popup_bg_image }})" {% endif %}>
+          <div class="holder">
+            {% if not (technology_platforms_popup_title is empty) %}
+              <h2>{{ technology_platforms_popup_title }}</h2>
+            {% endif %}
+
+            <button class="close-disease-modal">
+              <svg style="fill: white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
+                   height="24px">
+                <path
+                  d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/>
+              </svg>
+            </button>
+
+            <div class="terms-holder">
+              {% for term in technology_platform_terms %}
+                <div class="term dropdown-term">
+                  <div class="term-name">
+                    {{ term.name }}
+                  </div>
+                  {% set disease_posts = term.posts(-1, 'disease') %}
+                  {% if not (disease_posts is empty) %}
+                    <div class="list">
+                      {% for disease_post in disease_posts %}
+                        <a href="{{ disease_post.link }}">
+                          {{ disease_post.title }}
+                        </a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if not (development_phase_terms is empty) %}
+    <div class="disease-modal type-2 modal-development-phase" data-modal-name="development-phase">
+      <div class="modal-flex-holder">
+        <div class="modal-box"
+             {% if not (development_phases_popup_bg_image is empty) %}style="background-image: url({{ development_phases_popup_bg_image }})" {% endif %}>
+          <div class="holder">
+            {% if not (development_phases_popup_title is empty) %}
+              <h2>{{ development_phases_popup_title }}</h2>
+            {% endif %}
+
+            <button class="close-disease-modal">
+              <svg style="fill: white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
+                   height="24px">
+                <path
+                  d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/>
+              </svg>
+            </button>
+
+            <div class="terms-holder">
+              {% for term in development_phase_terms %}
+                <div class="term dropdown-term">
+                  <div class="term-name">
+                    {% set taxonomy_image = term.meta('taxonomy_image') %}
+                    {% if not (taxonomy_image is empty) %}
+                      <div class="icon">
+                        {% include 'parts/image.twig' with {'id': taxonomy_image, 'sizes': '100px'} only %}
+                      </div>
+                    {% endif %}
+                    <p class="term-name__text">{{ term.name }}</p>
+                  </div>
+                  {% set disease_posts = term.posts(-1, 'disease') %}
+                  {% if not (disease_posts is empty) %}
+                    <div class="list">
+                      {% for disease_post in disease_posts %}
+                        <a href="{{ disease_post.link }}">
+                          {{ disease_post.title }}
+                        </a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if not (trial_population_terms is empty) %}
+    <div class="disease-modal type-2 modal-trial-population" data-modal-name="trial-population">
+      <div class="modal-flex-holder">
+        <div class="modal-box"
+             {% if not (trial_population_popup_bg_image is empty) %}style="background-image: url({{ trial_population_popup_bg_image }})" {% endif %}>
+          <div class="holder">
+            {% if not (trial_population_popup_title is empty) %}
+              <h2>{{ trial_population_popup_title }}</h2>
+            {% endif %}
+
+            <button class="close-disease-modal">
+              <svg style="fill: white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
+                   height="24px">
+                <path
+                  d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"/>
+              </svg>
+            </button>
+
+            <div class="terms-holder">
+              {% for term in trial_population_terms %}
+                <div class="term dropdown-term">
+                  <div class="term-name">
+                    {% set taxonomy_image = term.meta('taxonomy_image') %}
+                    {% if not (taxonomy_image is empty) %}
+                      <div class="icon">
+                        {% include 'parts/image.twig' with {'id': taxonomy_image, 'sizes': '100px'} only %}
+                      </div>
+                    {% endif %}
+                    <p class="term-name__text">{{ term.name }}</p>
+                  </div>
+                  {% set disease_posts = term.posts(-1, 'disease') %}
+                  {% if not (disease_posts is empty) %}
+                    <div class="list">
+                      {% for disease_post in disease_posts %}
+                        <a href="{{ disease_post.link }}">
+                          {{ disease_post.title }}
+                        </a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

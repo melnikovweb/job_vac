@@ -1,0 +1,45 @@
+.is-style-full-width-bg,
+.is-style-video-popup-bg {
+  .wp-block-cover__image-background.has-parallax {
+    background-attachment: initial;
+  }
+}
+
+.wp-block-cover.is-style-hero-with-bg {
+  height: 385px;
+  min-height: 0;
+
+  @include breakpoint-down(sm) {
+    min-height: 163px;
+    height: auto;
+    padding-top: 80px;
+  }
+}
+
+.is-style-full-bg-image {
+  img {
+    width: 100%;
+  }
+}
+
+.is-style-video-popup-bg {
+  background-attachment: inherit;
+  height: 500px;
+
+  @include breakpoint-down(sm) {
+    height: 100vh;
+    padding-top: 50px;
+
+    h1,
+    h2 {
+      text-align: center;
+    }
+  }
+}
+
+.is-style-full-mobile-image {
+  @include breakpoint-down(sm) {
+    margin-left: calc(0px - var(--sk-container-padding));
+    margin-right: calc(0px - var(--sk-container-padding));
+  }
+}

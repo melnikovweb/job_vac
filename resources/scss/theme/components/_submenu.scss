@@ -1,0 +1,156 @@
+@import 'swiper/swiper-bundle.css';
+
+.submenu {
+  background-image: var(--sk-base-gradient);
+  padding: 8px 0;
+
+  .swiper {
+    max-width: 1300px;
+    display: flex;
+    justify-content: center;
+
+    .swiper-wrapper {
+      justify-content: flex-start;
+      max-width: 1120px;
+    }
+
+    .swiper-slide {
+      width: fit-content;
+      opacity: 0.5;
+      transition: all 300ms linear;
+
+      &:first-child {
+        margin-left: 40px;
+      }
+    }
+
+    .swiper-slide-visible {
+      opacity: 1;
+      transition: all 300ms linear;
+    }
+
+    .swiper-button-disabled {
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .swiper-button-prev {
+      background-image: url("data:image/svg+xml,%3Csvg width='13' height='22' viewBox='0 0 13 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath id='Vector' d='M11 20.5L1.5 11L11 1.5' stroke='%2303356D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"), linear-gradient(45deg, #83c236, #83c2369c);
+      background-repeat: no-repeat;
+      background-position: center center;
+      padding: 0 40px 0 0;
+      left: 0;
+    }
+
+    .swiper-button-next {
+      background-image: url("data:image/svg+xml,%3Csvg width='13' height='22' viewBox='0 0 13 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath id='Vector' d='M2 1.5L11.5 11L2 20.5' stroke='%2303356D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"), linear-gradient(45deg, #07b1ed9c, #07b1ed);
+      background-position: center center;
+      background-repeat: no-repeat;
+      padding: 0 0 0 40px;
+      right: 0;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+      content: '';
+    }
+  }
+
+  &__wrapper {
+    max-width: var(--sk-container-width-lg);
+  }
+
+  .submenu-button {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    color: var(--sk-color-white);
+    background: none;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    padding: 8px 24px;
+    border-radius: 0.25rem;
+    transition: all 300ms linear;
+    white-space: nowrap;
+
+    &:hover,
+    &:active {
+      color: var(--sk-color-navy);
+      background: var(--sk-color-transparent-white);
+      border: 1px solid var(--sk-color-navy);
+      transition: all 300ms linear;
+    }
+  }
+
+  .submenu-button.active {
+    color: var(--sk-color-navy);
+    background: var(--sk-color-transparent-white);
+    border: 1px solid var(--sk-color-navy);
+    font-weight: 700;
+  }
+
+  .swiper-button-lock {
+    display: flex;
+  }
+}
+
+.positioned {
+  position: fixed;
+  top: 19px;
+  z-index: 999;
+  width: calc(100% - 250px);
+  background-image: none;
+  background-color: var(--sk-color-white);
+  left: 50%;
+  transform: translateX(-50%);
+
+  .submenu-button {
+    color: var(--sk-color-navy);
+    transition: all 300ms linear;
+
+    &:hover,
+    &:active {
+      color: var(--sk-color-white);
+      background-color: var(--sk-color-navy);
+      transition: all 300ms linear;
+    }
+  }
+
+  .swiper-button-prev {
+    background-color: var(--sk-color-white);
+    box-shadow: var(--sk-color-white) -6px -14px 13px 21px;
+  }
+
+  .swiper-button-next {
+    background-color: var(--sk-color-white);
+    box-shadow: var(--sk-color-white) 12px -14px 12px 23px;
+  }
+}
+
+@media only screen and (max-width: 835px) {
+  .positioned {
+    top: calc(var(--sk-header-height) - 3px);
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+  }
+}
+
+.submenu.positioned.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.submenu.positioned {
+  .swiper-button-prev {
+    background-image: url("data:image/svg+xml,%3Csvg width='13' height='22' viewBox='0 0 13 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath id='Vector' d='M11 20.5L1.5 11L11 1.5' stroke='%2303356D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+
+  .swiper-button-next {
+    background-image: url("data:image/svg+xml,%3Csvg width='13' height='22' viewBox='0 0 13 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath id='Vector' d='M2 1.5L11.5 11L2 20.5' stroke='%2303356D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+}
